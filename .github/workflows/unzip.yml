@@ -11,8 +11,11 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
+      - name: Remove old output folder
+        run: git rm -r --ignore-unmatch output/
+
       - name: Unzip file
-        run: unzip build-estateflow-crm-app.zip -d output/
+        run: unzip -o build-estateflow-crm-app.zip
 
       - name: Commit unzipped files
         run: |
