@@ -1,0 +1,23 @@
+name: Delete Examples Folder
+
+on: workflow_dispatch
+
+permissions:
+  contents: write
+
+jobs:
+  delete-folder:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Delete examples folder
+        run: git rm -r --ignore-unmatch examples/
+
+      - name: Commit deletion
+        run: |
+          git config user.email "gamingice691@gmail.com"
+          git config user.name "GamingIce110"
+          git add .
+          git commit -m "Remove examples folder"
+          git push
