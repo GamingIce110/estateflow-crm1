@@ -2,6 +2,9 @@ name: Unzip EstateFlow CRM
 
 on: push
 
+permissions:
+  contents: write
+
 jobs:
   unzip:
     runs-on: ubuntu-latest
