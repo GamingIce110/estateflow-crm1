@@ -1,0 +1,20 @@
+name: Unzip EstateFlow CRM
+
+on: push
+
+jobs:
+  unzip:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Unzip file
+        run: unzip build-estateflow-crm-app.zip -d output/
+
+      - name: Commit unzipped files
+        run: |
+          git config user.email "gamingice691@gmail.com"
+          git config user.name "GamingIce110"
+          git add .
+          git commit -m "Unzipped EstateFlow CRM build"
+          git push
